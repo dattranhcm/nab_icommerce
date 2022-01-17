@@ -5,18 +5,18 @@ So, it`s very simple and limited set of functionalities.
 
 
 #### I. Approach Solution & Tech Stack
-1. Main tech stacks: 
-    Language/Framework: 
-            - java 11 
-            - spring boot 2.6.2
-            - spring cloud 2021.0.0 (spring cloud gateway, discovery service eureka, sleuth, openfeign)
-            - spock, logback 1.2.10, lombok 1.18.22
-    Database: mysql
-    Tools: mvn, mysql, flyway-8.4.0
-2. System Requisites:
-   - Java 11
-   - MySQL Server 8.0
-   - Apache Maven 3.8.1
+1. Tech Stack <br/>
+    - Java 11 <br/>
+	- Spring boot 2.6.2 <br/>
+	- Spring cloud 2021.0.0 (spring cloud gateway, discovery service eureka, sleuth, openfeign)<br/>
+	- Spock, logback 1.2.10, lombok 1.18.22<br/>
+	- Database: mysql <br/>
+	- Tools: mvn, mysql, flyway-8.4.0 <br/>
+    
+2. System Requisites <br/>
+   - Java 11 <br/>
+   - MySQL Server 8.0 <br/>
+   - Apache Maven 3.8.1 <br/>
 
 #### II. Architecture model & ERD, service introduction
 To build a very simple online shopping application,
