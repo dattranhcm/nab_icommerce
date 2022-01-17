@@ -41,9 +41,10 @@ many others feature will not include such as: authentication, circuit breaker, c
 ERD:
 note: some table will not have direct relation, due to can separate it in each schema belong to service domain, 
 so in this scope for simples, still put it into same schema/db to present
-
+![Spring Microservices architecture](readme-resource/ERD.png)
 
 ## Architecture model:
+![Spring Microservices architecture](readme-resource/icommerce-architech.png)
 
 #### III. How to run
 
@@ -63,13 +64,13 @@ so in this scope for simples, still put it into same schema/db to present
 3. Curls
     3.1 Shopping cart
     Add product item in to shopping cart:
-           curl --location --request POST 'http://localhost:8081/icommerce/v1/shopping-cart' \
+    ```curl --location --request POST 'http://localhost:8081/icommerce/v1/shopping-cart' \
            --header 'Content-Type: application/json' \
            --data-raw '{
            "customerId": "1",
            "productId": "1",
            "price": 20000
-           }'
+           }' ```
     Fetch customer shopping cart information
             curl --location --request GET 'http://localhost:8081/icommerce/v1/shopping-cart?customerId=1'
    
