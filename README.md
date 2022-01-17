@@ -41,7 +41,7 @@ many others feature will not include such as: authentication, circuit breaker, c
 ERD:
 note: some table will not have direct relation, due to can separate it in each schema belong to service domain, 
 so in this scope for simples, still put it into same schema/db to present
-![Spring Microservices architecture](readme-resource/ERD.png)
+![Spring Microservices architecture](readme-resource/ERD-db.png)
 
 ## Architecture model:
 ![Spring Microservices architecture](readme-resource/icommerce-architech.png)
@@ -76,19 +76,19 @@ so in this scope for simples, still put it into same schema/db to present
    
     3.2 Product
     Create a new product
-       curl --location --request POST 'http://localhost:8080/icommerce/v1/product' \
+       ``` curl --location --request POST 'http://localhost:8080/icommerce/v1/product' \
        --header 'Content-Type: application/json' \
        --data-raw '{
        "productName": "sach lop 4",
        "productCode": "SGK 4",
        "price": 20000
-       }'
+       }' ```
     Get product information
-        curl --location --request GET 'http://localhost:8080/icommerce/v1/product?productCode=SGK 4'
+        ``` curl --location --request GET 'http://localhost:8080/icommerce/v1/product?productCode=SGK 4' ```
     
     3.3 Customer
         Regis a new customer
-           curl --location --request POST 'http://localhost:8082/icommerce/v1/customer' \
+           ``` curl --location --request POST 'http://localhost:8082/icommerce/v1/customer' \
            --header 'Content-Type: application/json' \
            --data-raw '{
            "email": "test@gmail.com",
@@ -96,13 +96,13 @@ so in this scope for simples, still put it into same schema/db to present
            "lastName": "User",
            "address": "TP HCM",
            "userName": "testUser"
-           }'
+           }' ```
         
         Get customer info
-            curl --location --request GET 'http://localhost:8082/icommerce/v1/customer'
+           ``` curl --location --request GET 'http://localhost:8082/icommerce/v1/customer' ```
     3.4 Order
         Create new order by shopping cart infomation
-           curl --location --request POST 'http://localhost:8083/icommerce/v1/purchase-order' \
+          ``` curl --location --request POST 'http://localhost:8083/icommerce/v1/purchase-order' \
            --header 'Content-Type: application/json' \
            --data-raw '[
            {
@@ -117,7 +117,7 @@ so in this scope for simples, still put it into same schema/db to present
            "productPrice": 10000,
            "status": "AVAILABLE"
            }
-           ]'
+           ]' ```
         Fetch order infomation
-            curl --location --request GET 'http://localhost:8083/icommerce/v1/purchase-order?customerId=1'
+           ``` curl --location --request GET 'http://localhost:8083/icommerce/v1/purchase-order?customerId=1' ```
     
