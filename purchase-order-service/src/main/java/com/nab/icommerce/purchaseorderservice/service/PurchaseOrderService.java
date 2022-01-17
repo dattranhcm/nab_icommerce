@@ -1,5 +1,6 @@
 package com.nab.icommerce.purchaseorderservice.service;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.nab.icommerce.purchaseorderservice.entity.PurchaseOrder;
 import com.nab.icommerce.purchaseorderservice.entity.PurchaseOrderDetail;
 import com.nab.icommerce.purchaseorderservice.feign.CustomerClient;
@@ -7,6 +8,8 @@ import com.nab.icommerce.purchaseorderservice.feign.ProductClient;
 import com.nab.icommerce.purchaseorderservice.model.*;
 import com.nab.icommerce.purchaseorderservice.repository.PurchaseOrderRepository;
 import com.nab.icommerce.purchaseorderservice.utils.PurchaseOrderStatus;
+import lombok.SneakyThrows;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,27 +17,27 @@ import java.math.BigDecimal;
 import java.util.*;
 
 @Service
+@Slf4j
 public class PurchaseOrderService {
 
-  //  @Autowired
     private PurchaseOrderRepository purchaseOrderRepository;
-
- //   @Autowired
     private PurchaseOrderDetailService purchaseOrderDetailService;
-
-    @Autowired
     private ProductClient productClient;
-
-    @Autowired
     private CustomerClient customerClient;
+    private ObjectMapper objectMapper = new ObjectMapper();
 
     public PurchaseOrderService(PurchaseOrderRepository purchaseOrderRepository,
-                                PurchaseOrderDetailService purchaseOrderDetailService) {
+                                PurchaseOrderDetailService purchaseOrderDetailService,
+                                ProductClient productClient,
+                                CustomerClient customerClient) {
         this.purchaseOrderDetailService = purchaseOrderDetailService;
         this.purchaseOrderRepository = purchaseOrderRepository;
     }
 
+    @SneakyThrows
     public PurchaseOrderResponse createAnBillableOrder(List<ShoppingCartItem> shoppingCartItems) {
+        log.debug("%s", objectMapper.writeValueAsString(shoppingCartItems));
+
         Long customerId = shoppingCartItems.get(0).getCustomerId();
         Long orderId = createEmptyPurchaseOrder(customerId, "HCM");
         Optional<PurchaseOrder> purchaseOrderOptional = purchaseOrderRepository.findById(orderId);
@@ -78,7 +81,10 @@ public class PurchaseOrderService {
                 .build();
     }
 
+    @SneakyThrows
     public PurchaseOrderResponse getListOrder(Long customerId) {
+        log.info("s", customerId);
+
         List<PurchaseOrder> purchaseOrderEntities = purchaseOrderRepository.findByCustomerId(customerId);
         List<PurchaseOrderResponse.OrderItem> purchaseOrders = new ArrayList<>();
         purchaseOrderEntities.forEach(purchaseOrder ->
@@ -89,6 +95,7 @@ public class PurchaseOrderService {
         return PurchaseOrderResponse.builder().data(purchaseOrders).build();
     }
 
+    @SneakyThrows
     public PurchaseOrderResponse updateOrderInfo(PurchaseOrderRequest request) {
 
         PurchaseOrder purchaseOrder = purchaseOrderRepository.findByOrderCode(request.getOrderCode());
@@ -101,8 +108,9 @@ public class PurchaseOrderService {
         return PurchaseOrderResponse.builder().build();
     }
 
+    @SneakyThrows
     private Long createEmptyPurchaseOrder(Long customerId, String customerAddress ) {
-        return purchaseOrderRepository.saveAndFlush(PurchaseOrder.builder()
+        return purchaseOrderRepository.save(PurchaseOrder.builder()
                 .shipAddress(customerAddress)
                 .totalAmount(new BigDecimal(0))
                 .customerId(customerId)

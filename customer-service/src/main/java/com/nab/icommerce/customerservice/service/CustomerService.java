@@ -6,24 +6,26 @@ import com.nab.icommerce.customerservice.model.CustomerResponse;
 import com.nab.icommerce.customerservice.repository.CustomerRepository;
 import com.nab.icommerce.customerservice.utils.CustomerStatus;
 import lombok.SneakyThrows;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
 
 @Service
+@Slf4j
 public class CustomerService {
 
-    @Autowired
     private CustomerRepository customerRepository;
 
+    public CustomerService(CustomerRepository customerRepository) {
+        this.customerRepository = customerRepository;
+    }
+
+    @SneakyThrows
     public CustomerResponse getCustomers(Long id, String email, String mobile) {
-        List<Customer> customerEntities;
-        if(Objects.isNull(id) && Objects.isNull(email) && Objects.isNull(mobile)) {
-            customerEntities = customerRepository.findAll();
-        } else {
-            customerEntities = customerRepository.findByIdOrEmailOrMobile(id, email, mobile);
-        }
+        List<Customer> customerEntities = customerRepository.findByIdOrEmailOrMobile(id, email, mobile);
+        if(customerEntities.isEmpty()) return CustomerResponse.builder().build();
 
         List<CustomerResponse.CustomerItem> productItems = new ArrayList<>();
         customerEntities.forEach(customer -> {
@@ -33,6 +35,8 @@ public class CustomerService {
                     .lastName(customer.getLastName())
                     .address(customer.getAddress())
                     .id(customer.getId())
+                    .mobile(customer.getMobile())
+                    .email(customer.getEmail())
                     .userName(customer.getUserName())
                     .firstName(customer.getFirstName())
                     .lastName(customer.getLastName())
@@ -71,7 +75,7 @@ public class CustomerService {
                     .updatedTime(customer.getUpdatedTime())
                     .build();
         } else {
-            throw new Exception();
+            return CustomerResponse.CustomerItem.builder().build();
         }
     }
 }

@@ -31,6 +31,9 @@ public class Product {
     @Column(name = "status")
     private String status;
 
+    @Column(name = "metadata")
+    private String metadata;
+
     @Column(name = "price")
     private BigDecimal price;
 

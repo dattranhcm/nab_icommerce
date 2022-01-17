@@ -29,6 +29,7 @@ public class ProductResponse {
         private String productCode;
         private BigDecimal price;
         private String status;
+        private String metadata;
         private Date createdTime;
         private Date updatedTime;
     }

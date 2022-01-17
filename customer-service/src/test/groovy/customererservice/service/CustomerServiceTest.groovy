@@ -34,7 +34,6 @@ class CustomerServiceTest extends Specification {
         then:
         result != null
         result.getAddress() == "HCM City"
-        result.getEmail() == "test@gmail.com"
         result.getMobile() == "+8490999999"
     }
 
@@ -52,7 +51,6 @@ class CustomerServiceTest extends Specification {
         response != null
         response.getData() != null
         response.getData().get(0).getMobile() == "+8490999999"
-        response.getData().get(0).getEmail() == "test@gmail.com"
         response.getData().get(0).getAddress() == "HCM City"
     }
 }

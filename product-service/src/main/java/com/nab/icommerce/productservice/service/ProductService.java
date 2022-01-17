@@ -5,6 +5,7 @@ import com.nab.icommerce.productservice.model.ProductRequest;
 import com.nab.icommerce.productservice.model.ProductResponse;
 import com.nab.icommerce.productservice.repository.ProductRepository;
 import com.nab.icommerce.productservice.utils.ProductStatus;
+import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,9 +16,13 @@ import java.util.*;
 @Slf4j
 public class ProductService {
 
-    @Autowired
     private ProductRepository productRepository;
 
+    public ProductService(ProductRepository productRepository) {
+        this.productRepository = productRepository;
+    }
+
+    @SneakyThrows
     public ProductResponse findByProductNameOrProductCode(String productName, String productCode, String status, Long productId) {
         log.info(String.format("%s, %s, %s, %s", productName, productCode, status, productId));
         if(Objects.nonNull(productId)) {
@@ -31,6 +36,7 @@ public class ProductService {
             .productCode(product.getProductCode())
             .productName(product.getProductName())
             .status(product.getStatus())
+            .metadata(product.getMetadata())
             .price(product.getPrice())
             .createdTime(product.getCreatedTime())
             .updatedTime(product.getUpdatedTime())
@@ -41,13 +47,19 @@ public class ProductService {
         return ProductResponse.builder().data(productItems).build();
     }
 
+    @SneakyThrows
     public ProductResponse findByProductId(Long productId) {
+        log.info(String.format("%s", productId));
         Optional<Product> productEntities = productRepository.findById(productId);
-        Product product = productEntities.get();
+        if(!Optional.of(productEntities).isEmpty()) {
+            return ProductResponse.builder().build();
+        }
+        Product product = Optional.of(productEntities).get().get();
         return ProductResponse.builder().data(List.of(ProductResponse.ProductItem.builder()
                         .productCode(product.getProductCode())
                         .productName(product.getProductName())
                         .status(product.getStatus())
+                        .metadata(product.getMetadata())
                         .price(product.getPrice())
                         .createdTime(product.getCreatedTime())
                         .updatedTime(product.getUpdatedTime())
@@ -56,6 +68,7 @@ public class ProductService {
         ).build();
     }
 
+    @SneakyThrows
     public ProductResponse addNewProduct(ProductRequest request) {
         Product product = productRepository.save(Product.builder()
                 .productName(request.getProductName())
@@ -72,6 +85,7 @@ public class ProductService {
                 .productCode(product.getProductCode())
                 .price(product.getPrice())
                 .status(product.getStatus())
+                .metadata(product.getMetadata())
                 .build()))
                 .build();
     }

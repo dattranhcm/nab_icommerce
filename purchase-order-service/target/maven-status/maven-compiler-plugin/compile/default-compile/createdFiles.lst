@@ -1,5 +1,4 @@
 com\nab\icommerce\purchaseorderservice\model\PurchaseOrderResponse$PurchaseOrderResponseBuilder.class
-com\nab\icommerce\purchaseorderservice\entity\BaseEntity.class
 com\nab\icommerce\purchaseorderservice\model\ShoppingCartItem.class
 com\nab\icommerce\purchaseorderservice\model\PurchaseOrderResponse$OrderItem$OrderItemBuilder.class
 com\nab\icommerce\purchaseorderservice\entity\PurchaseOrderDetail$PurchaseOrderDetailBuilder.class
