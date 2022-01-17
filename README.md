@@ -25,23 +25,23 @@ many others feature will not include such as: authentication, circuit breaker, c
 - discovery-server: [A spring cloud discovery service base on Netflix Eureka, handle registry and discovery services.]
 - gateway:  [A Spring Cloud Gateway responsible handle process request from client as a gateway of system, handle the request forward to destination service]
 - customer-service [CRUD for customer]
-  - Support: 
-        create new customer
-        get customer info
+  - Support:
+           + create new customer
+           + get customer info
 - purchase-order-service [CRUD for order]
     - Support:
-        create order (with shopping cart data)
-        fetch order infomation
+          + create order (with shopping cart data)
+          + fetch order infomation
 - shopping-cart-service [CRUD shopping cart]
     - Support:
-        add product item into shopping cart
-        fetch shopping cart item
+          + add product item into shopping cart
+          + fetch shopping cart item
 - product-service [CRUD product]
     - Support:
-        create new product
-        get product information
+          + create new product 
+          + get product information
 
-ERD:
+ERDiagram DBSM:
 note: some table will not have direct relation, due to can separate it in each schema belong to service domain, 
 so in this scope for simples, still put it into same schema/db to present
 ![Spring Microservices architecture](readme-resource/ERDiagram_DBMS.png)
