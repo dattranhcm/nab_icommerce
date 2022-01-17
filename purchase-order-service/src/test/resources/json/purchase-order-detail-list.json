@@ -1,0 +1,18 @@
+[
+  {
+    "id": 1,
+    "productId": 1,
+    "productPrice": 200000,
+    "status": "AVAILABLE",
+    "createdTime": "2022-01-12T17:53:50.847Z",
+    "updatedTime": "2022-01-12T18:53:50.847Z"
+  },
+  {
+  "id": 2,
+  "productId": 2,
+  "productPrice": 200000,
+  "status": "AVAILABLE",
+  "createdTime": "2022-01-12T17:53:50.847Z",
+  "updatedTime": "2022-01-12T18:53:50.847Z"
+  }
+]

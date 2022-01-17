@@ -1,0 +1,19 @@
+{
+  "customerId": 1,
+  "data": [
+    {
+      "id": null,
+      "productId": 1,
+      "amount": 20000
+    },
+    {
+      "id": null,
+      "productId": 2,
+      "amount": 10000
+    }
+  ],
+  "totalAmount": 30000,
+  "shipAddress": "HCM",
+  "orderCode": "",
+  "status": "AVAILABLE"
+}

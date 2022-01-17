@@ -1,0 +1,31 @@
+-------------------------------------------------------------------------------
+Test set: PurchaseOrderControllerTest
+-------------------------------------------------------------------------------
+Tests run: 3, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 24.452 s <<< FAILURE! - in PurchaseOrderControllerTest
+create an purchase order base on shopping cart list  Time elapsed: 1.86 s  <<< FAILURE!
+org.spockframework.runtime.ConditionFailedWithExceptionError: 
+Condition failed with Exception:
+
+response.then().log().all().statusCode(200)
+|        |      |     |     |
+|        |      |     |     java.lang.AssertionError: 1 expectation failed.
+|        |      |     |     Expected status code <200> but was <500>.
+|        |      |     |      
+|        |      |     |     	at io.restassured.internal.ResponseSpecificationImpl$HamcrestAssertionClosure.validate(ResponseSpecificationImpl.groovy:494)
+|        |      |     |     	at io.restassured.internal.ResponseSpecificationImpl.validateResponseIfRequired(ResponseSpecificationImpl.groovy:656)
+|        |      |     |     	at io.restassured.internal.ResponseSpecificationImpl.statusCode(ResponseSpecificationImpl.groovy:125)
+|        |      |     |     	at io.restassured.internal.ResponseSpecificationImpl.statusCode(ResponseSpecificationImpl.groovy:133)
+|        |      |     |     	at io.restassured.internal.ValidatableResponseOptionsImpl.statusCode(ValidatableResponseOptionsImpl.java:119)
+|        |      |     |     	at com.nab.icommerce.purchaseorderservice.controller.PurchaseOrderControllerTest.create an purchase order base on shopping cart list(PurchaseOrderControllerTest.groovy:27)
+|        |      |     <io.restassured.internal.ValidatableResponseImpl@3c07b046 responseSpec=io.restassured.internal.ResponseSpecificationImpl@4086022 extractableResponse=io.restassured.internal.RestAssuredResponseImpl@6e1af662 response=io.restassured.internal.RestAssuredResponseImpl@6e1af662 config=io.restassured.config.RestAssuredConfig@4c2f3f41>
+|        |      <io.restassured.internal.ValidatableResponseImpl@3c07b046 responseSpec=io.restassured.internal.ResponseSpecificationImpl@4086022 extractableResponse=io.restassured.internal.RestAssuredResponseImpl@6e1af662 response=io.restassured.internal.RestAssuredResponseImpl@6e1af662 config=io.restassured.config.RestAssuredConfig@4c2f3f41>
+|        <io.restassured.internal.ValidatableResponseImpl@3c07b046 responseSpec=io.restassured.internal.ResponseSpecificationImpl@4086022 extractableResponse=io.restassured.internal.RestAssuredResponseImpl@6e1af662 response=io.restassured.internal.RestAssuredResponseImpl@6e1af662 config=io.restassured.config.RestAssuredConfig@4c2f3f41>
+<io.restassured.internal.RestAssuredResponseImpl@6e1af662 logRepository=io.restassured.internal.log.LogRepository@21ed2052 groovyResponse=io.restassured.internal.RestAssuredResponseOptionsGroovyImpl@517ef60>
+
+	at com.nab.icommerce.purchaseorderservice.controller.PurchaseOrderControllerTest.create an purchase order base on shopping cart list(PurchaseOrderControllerTest.groovy:27)
+Caused by: java.lang.AssertionError: 
+1 expectation failed.
+Expected status code <200> but was <500>.
+
+	at com.nab.icommerce.purchaseorderservice.controller.PurchaseOrderControllerTest.create an purchase order base on shopping cart list(PurchaseOrderControllerTest.groovy:27)
+

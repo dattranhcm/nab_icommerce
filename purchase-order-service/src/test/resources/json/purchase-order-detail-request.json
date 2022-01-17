@@ -1,0 +1,9 @@
+{
+  "id": 1,
+  "productId": 1,
+  "productPrice": 200000,
+  "status": "AVAILABLE",
+  "purchaseOrder":"",
+  "createdTime": "",
+  "updatedTime": ""
+}

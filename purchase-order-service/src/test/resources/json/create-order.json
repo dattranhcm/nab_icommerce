@@ -1,0 +1,14 @@
+[
+  {
+    "customerId": 1,
+    "productId": 1,
+    "productPrice": 20000,
+    "status": "AVAILABLE"
+  },
+  {
+    "customerId": 1,
+    "productId": 2,
+    "productPrice": 10000,
+    "status": "AVAILABLE"
+  }
+]

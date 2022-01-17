@@ -1,0 +1,42 @@
+server:
+    port: 8080
+    servlet:
+        context-path: /icommerce
+
+logging:
+    level:
+        root: INFO
+    pattern.console: "%d{yyyy-MM-dd HH:mm:ss.SSS,GMT+8} ${spring.application.name}:[%t]:%X{traceId:-},%X{spanId:-} %-5level %logger{36}:%L - %msg%n"
+
+spring:
+    application:
+        name: product-service
+    cloud:
+        config:
+            enabled: false
+    datasource:
+        driver-class-name: com.mysql.jdbc.Driver
+        username: root
+        password: admin
+        url: jdbc:mysql://localhost:3306/nab_icommerce
+        platform: mysql
+        initialization-mode: always
+        continue-on-error: true
+    jpa:
+        show-sql: true
+        generate-ddl: true
+        hibernate:
+            ddl-auto: create
+        database: mysql
+
+eureka:
+    instance:
+        leaseRenewalIntervalInSeconds: 1
+        leaseExpirationDurationInSeconds: 2
+    client:
+        serviceUrl:
+            defaultZone: http://127.0.0.1:8761/eureka/
+        healthcheck:
+            enabled: true
+        lease:
+            duration: 5

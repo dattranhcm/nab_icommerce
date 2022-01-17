@@ -1,0 +1,6 @@
+  {
+    "customerId": 1,
+    "productId": 1,
+    "productPrice": 20000,
+    "status": "ON_DELIVERY"
+  }
