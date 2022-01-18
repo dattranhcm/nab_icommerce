@@ -1,8 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: PurchaseOrderControllerTest
 -------------------------------------------------------------------------------
-Tests run: 3, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 29.279 s <<< FAILURE! - in PurchaseOrderControllerTest
-create an purchase order base on shopping cart list  Time elapsed: 1.805 s  <<< FAILURE!
+Tests run: 3, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 24.078 s <<< FAILURE! - in PurchaseOrderControllerTest
+create an purchase order base on shopping cart list  Time elapsed: 1.953 s  <<< FAILURE!
 org.spockframework.runtime.ConditionFailedWithExceptionError: 
 Condition failed with Exception:
 
@@ -17,10 +17,10 @@ response.then().log().all().statusCode(200)
 |        |      |     |     	at io.restassured.internal.ResponseSpecificationImpl.statusCode(ResponseSpecificationImpl.groovy:133)
 |        |      |     |     	at io.restassured.internal.ValidatableResponseOptionsImpl.statusCode(ValidatableResponseOptionsImpl.java:119)
 |        |      |     |     	at com.nab.icommerce.purchaseorderservice.controller.PurchaseOrderControllerTest.create an purchase order base on shopping cart list(PurchaseOrderControllerTest.groovy:27)
-|        |      |     <io.restassured.internal.ValidatableResponseImpl@36004275 responseSpec=io.restassured.internal.ResponseSpecificationImpl@25983534 extractableResponse=io.restassured.internal.RestAssuredResponseImpl@6045d2c response=io.restassured.internal.RestAssuredResponseImpl@6045d2c config=io.restassured.config.RestAssuredConfig@7e8b070e>
-|        |      <io.restassured.internal.ValidatableResponseImpl@36004275 responseSpec=io.restassured.internal.ResponseSpecificationImpl@25983534 extractableResponse=io.restassured.internal.RestAssuredResponseImpl@6045d2c response=io.restassured.internal.RestAssuredResponseImpl@6045d2c config=io.restassured.config.RestAssuredConfig@7e8b070e>
-|        <io.restassured.internal.ValidatableResponseImpl@36004275 responseSpec=io.restassured.internal.ResponseSpecificationImpl@25983534 extractableResponse=io.restassured.internal.RestAssuredResponseImpl@6045d2c response=io.restassured.internal.RestAssuredResponseImpl@6045d2c config=io.restassured.config.RestAssuredConfig@7e8b070e>
-<io.restassured.internal.RestAssuredResponseImpl@6045d2c logRepository=io.restassured.internal.log.LogRepository@21ff56e7 groovyResponse=io.restassured.internal.RestAssuredResponseOptionsGroovyImpl@12c9803d>
+|        |      |     <io.restassured.internal.ValidatableResponseImpl@427b8fe4 responseSpec=io.restassured.internal.ResponseSpecificationImpl@56510bb2 extractableResponse=io.restassured.internal.RestAssuredResponseImpl@27cda5f response=io.restassured.internal.RestAssuredResponseImpl@27cda5f config=io.restassured.config.RestAssuredConfig@58e22835>
+|        |      <io.restassured.internal.ValidatableResponseImpl@427b8fe4 responseSpec=io.restassured.internal.ResponseSpecificationImpl@56510bb2 extractableResponse=io.restassured.internal.RestAssuredResponseImpl@27cda5f response=io.restassured.internal.RestAssuredResponseImpl@27cda5f config=io.restassured.config.RestAssuredConfig@58e22835>
+|        <io.restassured.internal.ValidatableResponseImpl@427b8fe4 responseSpec=io.restassured.internal.ResponseSpecificationImpl@56510bb2 extractableResponse=io.restassured.internal.RestAssuredResponseImpl@27cda5f response=io.restassured.internal.RestAssuredResponseImpl@27cda5f config=io.restassured.config.RestAssuredConfig@58e22835>
+<io.restassured.internal.RestAssuredResponseImpl@27cda5f logRepository=io.restassured.internal.log.LogRepository@745f4c49 groovyResponse=io.restassured.internal.RestAssuredResponseOptionsGroovyImpl@2631075f>
 
 	at com.nab.icommerce.purchaseorderservice.controller.PurchaseOrderControllerTest.create an purchase order base on shopping cart list(PurchaseOrderControllerTest.groovy:27)
 Caused by: java.lang.AssertionError: 

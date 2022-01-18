@@ -42,7 +42,7 @@ public class ProductController {
                                        @Nullable @RequestParam(value = "productCode") String productCode,
                                        @Nullable @RequestParam(value = "status") String status,
                                        @Nullable @RequestParam(value = "id") Long id) {
-        return productService.findByProductNameOrProductCode(productName, productCode, status, id);
+        return productService.findByProductNameOrProductCodeOrStatusOrId(productName, productCode, status, id);
     }
 
 }

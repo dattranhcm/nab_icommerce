@@ -32,6 +32,8 @@ public class PurchaseOrderService {
                                 CustomerClient customerClient) {
         this.purchaseOrderDetailService = purchaseOrderDetailService;
         this.purchaseOrderRepository = purchaseOrderRepository;
+        this.productClient = productClient;
+        this.customerClient = customerClient;
     }
 
     @SneakyThrows
@@ -49,10 +51,8 @@ public class PurchaseOrderService {
 
 
         List<PurchaseOrderResponse.OrderItem> orderItems = new ArrayList<>();
-        BigDecimal totalAmount = new BigDecimal(30000);
         if(Objects.nonNull(purchaseOrderDetails)
             && purchaseOrderDetails.size() > 0) {
-
             purchaseOrderDetails.forEach(orderDetail -> {
                 ProductResponse productResponse = productClient.getProducts(null, null, null, orderDetail.getProductId());
                 orderItems.add(PurchaseOrderResponse.OrderItem.builder()
@@ -67,7 +67,6 @@ public class PurchaseOrderService {
         return PurchaseOrderResponse.builder()
                 .data(orderItems)
                 .orderCode(purchaseOrder.getOrderCode())
-                .totalAmount(totalAmount)
                 .orderCode(purchaseOrder.getOrderCode())
                 .shipAddress(purchaseOrder.getShipAddress())
                 .customerInfo(PurchaseOrderResponse.CustomerInfo.builder()

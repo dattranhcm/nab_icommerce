@@ -30,7 +30,5 @@ public class ProductResponse {
         private BigDecimal price;
         private String status;
         private String metadata;
-        private Date createdTime;
-        private Date updatedTime;
     }
 }

@@ -47,8 +47,6 @@ public class ShoppingCartService {
                     .productPrice(shoppingCart.getProductPrice())
                     .productName(Objects.isNull(productResponse) ? null : productResponse.getData().get(0).getProductName())
                     .status(shoppingCart.getStatus())
-                    .createdTime(shoppingCart.getCreatedTime())
-                    .updatedTime(shoppingCart.getUpdatedTime())
             .build()
             );
         });

@@ -25,7 +25,7 @@ public class CustomerService {
     @SneakyThrows
     public CustomerResponse getCustomers(Long id, String email, String mobile) {
         List<Customer> customerEntities = customerRepository.findByIdOrEmailOrMobile(id, email, mobile);
-        if(customerEntities.isEmpty()) return CustomerResponse.builder().build();
+        if(customerEntities.isEmpty()) return CustomerResponse.builder().currentPage(1).totalItems(0).build();
 
         List<CustomerResponse.CustomerItem> productItems = new ArrayList<>();
         customerEntities.forEach(customer -> {
@@ -40,12 +40,10 @@ public class CustomerService {
                     .userName(customer.getUserName())
                     .firstName(customer.getFirstName())
                     .lastName(customer.getLastName())
-                    .createdTime(customer.getCreatedTime())
-                    .updatedTime(customer.getUpdatedTime())
             .build()
             );
         });
-        return CustomerResponse.builder().data(productItems).build();
+        return CustomerResponse.builder().data(productItems).currentPage(1).totalItems(0).build();
     }
 
     @SneakyThrows
@@ -71,8 +69,6 @@ public class CustomerService {
                     .address(customer.getAddress())
                     .mobile(customer.getMobile())
                     .status(customer.getStatus())
-                    .createdTime(customer.getCreatedTime())
-                    .updatedTime(customer.getUpdatedTime())
                     .build();
         } else {
             return CustomerResponse.CustomerItem.builder().build();

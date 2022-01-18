@@ -23,7 +23,7 @@ public class ProductService {
     }
 
     @SneakyThrows
-    public ProductResponse findByProductNameOrProductCode(String productName, String productCode, String status, Long productId) {
+    public ProductResponse findByProductNameOrProductCodeOrStatusOrId(String productName, String productCode, String status, Long productId) {
         log.info(String.format("%s, %s, %s, %s", productName, productCode, status, productId));
         if(Objects.nonNull(productId)) {
             return findByProductId(productId);
@@ -38,8 +38,6 @@ public class ProductService {
             .status(product.getStatus())
             .metadata(product.getMetadata())
             .price(product.getPrice())
-            .createdTime(product.getCreatedTime())
-            .updatedTime(product.getUpdatedTime())
             .id(product.getId())
             .build()
             );
@@ -51,18 +49,16 @@ public class ProductService {
     public ProductResponse findByProductId(Long productId) {
         log.info(String.format("%s", productId));
         Optional<Product> productEntities = productRepository.findById(productId);
-        if(!Optional.of(productEntities).isEmpty()) {
+        if(!productEntities.isPresent()) {
             return ProductResponse.builder().build();
         }
-        Product product = Optional.of(productEntities).get().get();
+        Product product = productEntities.get();
         return ProductResponse.builder().data(List.of(ProductResponse.ProductItem.builder()
                         .productCode(product.getProductCode())
                         .productName(product.getProductName())
                         .status(product.getStatus())
                         .metadata(product.getMetadata())
                         .price(product.getPrice())
-                        .createdTime(product.getCreatedTime())
-                        .updatedTime(product.getUpdatedTime())
                         .id(product.getId())
                         .build())
         ).build();

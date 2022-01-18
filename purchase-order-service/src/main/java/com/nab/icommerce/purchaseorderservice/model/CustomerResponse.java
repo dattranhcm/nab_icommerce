@@ -32,7 +32,5 @@ public class CustomerResponse {
         private String mobile;
         private String address;
         private String status;
-        public Date createdTime;
-        public Date updatedTime;
     }
 }

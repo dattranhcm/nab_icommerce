@@ -47,7 +47,7 @@ class ProductServiceTest extends Specification {
                 .build()
         )
         when:
-        ProductResponse result = productService.findByProductNameOrProductCode("SGK_1", "BOK001", null)
+        ProductResponse result = productService.findByProductNameOrProductCodeOrStatusOrId("SGK_1", "BOK001", null, null)
         then:
         result != null
         result.getData() != null

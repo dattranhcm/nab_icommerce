@@ -17,7 +17,6 @@ import java.util.List;
 @RequestMapping("/v1/purchase-order")
 public class PurchaseOrderController {
 
-   // @Autowired
     private PurchaseOrderService purchaseOrderService;
     public PurchaseOrderController(PurchaseOrderService purchaseOrderService) {
         this.purchaseOrderService = purchaseOrderService;

@@ -31,8 +31,6 @@ public class ShoppingCartResponse {
         private String productCode;
         private BigDecimal productPrice;
         private String status;
-        private Date createdTime;
-        private Date updatedTime;
     }
 
     @Data
