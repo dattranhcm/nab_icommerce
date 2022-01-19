@@ -52,21 +52,21 @@ many others feature will not include such as: authentication, circuit breaker, c
 
 #### III. How to run
 
-1. DB setup:
-   1.1 create new db on your local named: nab_icommerce
-   1.2 make sure flyway config pointing nab_icommerce db
-   1.2 cd <icommerce path>/db.migrate/
-   1.3 copy V1.0.0__init_db_icommerce.sql into flyway/sql/
-   1.4 run flyway migration
-2. Execute:
-    2.1 cd to the directory where store icommerce repo
-    2.2 Build projects: cd <icommerce path>/build-run-script/
-    2.3 Run build.bat
-    2.4 Run projects: cd <icommerce path>/build-run-script/
-    2.5 Run run-services.bat
+1. DB setup:  <br />
+   1.1 create new db on your local named: nab_icommerce <br />
+   1.2 make sure flyway config pointing nab_icommerce db <br />
+   1.2 cd <icommerce path>/db.migrate/ <br />
+   1.3 copy V1.0.0__init_db_icommerce.sql into flyway/sql/ <br />
+   1.4 run flyway migration <br />
+2. Execute: <br />
+    2.1 cd to the directory where store icommerce repo <br /> 
+    2.2 Build projects: cd <icommerce path>/build-run-script/ <br />
+    2.3 Run build.bat <br />
+    2.4 Run projects: cd <icommerce path>/build-run-script/ <br />
+    2.5 Run run-services.bat <br />
    
-3. Curls
-    Note: All Curl will to call to gateway service run at port 9080
+3. Curls <br />
+    Note: All Curl will to call to gateway service run at port 9080 <br />
     
     3.1 Shopping cart
     
